@@ -29,9 +29,18 @@ Go to the repository folder
 cd .\SpringBootAngularProject\
 ```
 
-Run the following python script and wait 1 minute for the application startup
+### For running backend and docker
 
 Docker needs to be running in your computer before executing this command.
+
 ```
-python .\init.py
+cd .\backend\
+docker compose up
+.\mvnw clean spring-boot:run
+```
+
+### For running fronted
+```
+cd .\frontendMat\
+ng serve -o
 ```
