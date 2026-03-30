@@ -29,7 +29,7 @@ Go to the repository folder
 cd .\SpringBootAngularProject\
 ```
 
-For running backend and docker
+### For running backend and docker
 
 Docker needs to be running in your computer before executing this command.
 
@@ -39,7 +39,7 @@ docker compose up
 .\mvnw clean spring-boot:run
 ```
 
-For running fronted
+### For running fronted
 ```
 cd .\frontendMat\
 ng serve -o
