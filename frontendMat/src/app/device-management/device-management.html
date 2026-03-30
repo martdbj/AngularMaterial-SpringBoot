@@ -1,0 +1,45 @@
+<div class="title">
+    <h1>Registered Devices</h1>
+    <p>Manage tech-hardware supply</p>
+</div>
+
+
+<button matFab extended class="fab" (click)="openAddDeviceDialog()">
+    <mat-icon>add</mat-icon>
+    Add new
+</button>
+
+
+@for (device of devices(); track $index) {
+<mat-card appearance="outlined" class="card">
+    <mat-card-header class="cardContent">
+        <mat-card-title class="cardTitle">
+
+            
+            <mat-card-title-group>
+                <mat-icon class="deviceIcon">devices</mat-icon>
+                <mat-card-title-group>
+                    <mat-card-title>{{ device.name }}</mat-card-title>
+                    <mat-card-subtitle>Type: {{ device.type }} | Serial Number: {{ device.serialNumber }}</mat-card-subtitle>
+                </mat-card-title-group>
+            </mat-card-title-group>
+            
+        </mat-card-title> 
+    </mat-card-header>
+
+    <mat-card-actions class="actions">
+        <app-assign-button class="buttonAssign" (onAssign)="selectAssignDeviceDialog(device.serialNumber)" [employeeId]="device.employeeId"></app-assign-button>
+        <div>
+            <button matButton class="update" (click)="openEditDeviceDialog(device.serialNumber)">
+            Update<mat-icon>update</mat-icon>
+        </button>
+        <button matButton class="delete" (click)="openDeleteDeviceDialog(device.serialNumber)">
+            Delete<mat-icon>delete</mat-icon>
+        </button>
+        </div>
+    </mat-card-actions>
+</mat-card>
+}
+
+
+<div style="height: 100px;"></div>

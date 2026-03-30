@@ -1,0 +1,34 @@
+<h2 mat-dialog-title>Add Employee</h2>
+<mat-dialog-content>
+    <form (submit)="addOnSubmit($event)">
+        <p>
+            <mat-form-field appearance="fill" type="name">
+                <mat-label>Employee Name</mat-label>
+                <input matInput placeholder="Ex: John Doe" [formField]="addForm.name">
+                <mat-icon matSuffix>person</mat-icon>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="fill" type="name">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="Ex: John@cyraco.com" [formField]="addForm.email">
+                <mat-icon matSuffix>mail</mat-icon>
+            </mat-form-field>
+        </p>
+
+        <mat-form-field>
+            <mat-label>Company</mat-label>
+            <mat-icon matSuffix>apartment</mat-icon>
+            <mat-select [formField]="addForm.companyId">
+                @for (company of companies(); track $index) {
+                <mat-option value="{{company.id}}">{{ company.name }}</mat-option>
+                }
+            </mat-select>
+        </mat-form-field>
+
+        <div class="buttons">
+            <button type="submit" matButton id="save">Save</button>
+            <button matButton type="button" id="close" (click)="closeDialog()">Close</button>
+        </div>
+    </form>
+</mat-dialog-content>

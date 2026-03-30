@@ -1,0 +1,68 @@
+.companyIcon {
+    margin-right: 20px;
+    border-radius: 15%;
+    width: 100px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-color);
+}
+
+.cardTitle {
+    display: flex;
+}
+
+.fab {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 100;
+    background-color: rgba(255, 198, 40, 0.793);
+    height: 60px;
+    border-radius: 15%;
+    color: black;
+}
+
+.fab:hover {
+    background-color: rgba(248, 186, 15, 0.793);
+}
+
+.update {
+    background-color: white;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.update:hover {
+    transition: 0.4s;
+    background-color: rgba(255, 198, 40, 0.793);
+}
+
+.delete {
+    background-color: white;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.delete:hover {
+    transition: 0.4s;
+    background-color: rgba(255, 64, 64, 0.756);
+}
+
+h1 {
+    line-height: 1.6rem;
+    margin-bottom: 0px;
+}
+
+.title {
+    margin: 25px;
+}
+
+.card {
+    margin: 15px;
+}
+
+@media (max-width: 500px) {
+    mat-card-actions {
+        justify-content: center;
+    }
+}

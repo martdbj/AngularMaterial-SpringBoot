@@ -1,0 +1,27 @@
+.buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+#save {
+    width: 100%;
+    background-color: var(--primary-color);
+
+    transition: background-color 0.2s ease-in-out;
+}
+
+#save:hover {
+    transition: 0.4s;
+    background-color: var(--secondary-color);
+}
+
+#close {
+    width: 100%;
+
+    transition: background-color 0.2s ease-in-out;
+}
+
+#close:hover {
+    transition: 0.4s;
+    background-color: var(--close-button-color);
+}

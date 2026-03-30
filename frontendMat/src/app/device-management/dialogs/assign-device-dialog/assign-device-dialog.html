@@ -1,0 +1,19 @@
+<h2 mat-dialog-title>Assign Employee</h2>
+<mat-dialog-content>
+    <form (submit)="assignOnSubmit($event)">
+        <mat-form-field>
+            <mat-label>Employee</mat-label>
+            <mat-icon matSuffix>person</mat-icon>
+            <mat-select [formField]="assignForm.id">
+                @for (employee of employees(); track $index) {
+                <mat-option value="{{ employee.id }}">{{ employee.name }} | {{ employee.email }}</mat-option>
+                }
+            </mat-select>
+        </mat-form-field>
+
+        <div class="buttons">
+            <button type="submit" matButton id="save">Save</button>
+            <button matButton type="button" id="close" (click)="closeDialog()">Close</button>
+        </div>
+    </form>
+</mat-dialog-content>

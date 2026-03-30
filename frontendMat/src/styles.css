@@ -1,0 +1,10 @@
+/* You can add global styles to this file, and also import other style files */
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+
+
+:root {
+    --primary-color: rgb(130, 178, 245);
+    --secondary-color: rgb(81, 152, 250);
+    --add-button-color: rgba(255, 198, 40, 0.793);
+    --close-button-color: rgb(176, 176, 176);
+}

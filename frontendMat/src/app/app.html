@@ -1,0 +1,16 @@
+<mat-toolbar class="mat-elevation-z3" style="background-color: var(--primary-color);">
+    @if (!isMobile) {
+    <button mat-icon-button (click)="collapsed.set(!collapsed())">
+        <mat-icon>menu</mat-icon>
+    </button>
+    }
+    <h1>Material Management</h1>
+</mat-toolbar>
+<mat-sidenav-container>
+    <mat-sidenav class="sidenav" opened mode="side" [style.width]="sidenavWidth()">
+        <app-custom-sidenav [collapsed]="collapsed()" />
+    </mat-sidenav>
+    <mat-sidenav-content class="sidenav-content" [style.margin-left]="sidenavWidth()">
+        <router-outlet id="out"></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

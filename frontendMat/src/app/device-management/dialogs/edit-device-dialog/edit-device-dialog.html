@@ -1,0 +1,31 @@
+<h2 mat-dialog-title>Add Device</h2>
+<mat-dialog-content>
+    <form (submit)="updateOnSubmit($event)">
+        <p>
+            <mat-form-field appearance="fill" type="name">
+                <mat-label>Serial number</mat-label>
+                <input matInput placeholder="Ex: Laptop" [formField]="updateForm.serialNumber">
+                <mat-icon matSuffix>id_card</mat-icon>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="fill" type="name">
+                <mat-label>Namee</mat-label>
+                <input matInput placeholder="Ex: Laptop" [formField]="updateForm.name">
+                <mat-icon matSuffix>person</mat-icon>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="fill" type="type">
+                <mat-label>Type</mat-label>
+                <input matInput type="number" placeholder="Ex: 1" [formField]="updateForm.type">
+                <mat-icon matSuffix>mail</mat-icon>
+            </mat-form-field>
+        </p>
+
+        <div class="buttons">
+            <button type="submit" matButton id="save">Save</button>
+            <button matButton type="button" id="close" (click)="closeDialog()">Close</button>
+        </div>
+    </form>
+</mat-dialog-content>
