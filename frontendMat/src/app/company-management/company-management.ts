@@ -1,7 +1,8 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 
 import { CompanyService } from '../services/company.service';
 import { Company } from '../models/company';
+import { Employee } from '../models/employee';
 
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
@@ -11,6 +12,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { AddCompanyDialog } from './dialogs/add-company-dialog/add-company-dialog';
 import { EditCompanyDialog } from './dialogs/edit-company-dialog/edit-company-dialog';
 import { DeleteCompanyDialog } from './dialogs/delete-company-dialog/delete-company-dialog';
+import { EmployeeService } from '../services/employee.service';
 
 
 
@@ -25,17 +27,31 @@ import { DeleteCompanyDialog } from './dialogs/delete-company-dialog/delete-comp
 })
 export class CompanyManagement {
   companyService = inject(CompanyService);
+  employeeService = inject(EmployeeService);
 
   companies = signal<Company[]>([]);
+  employees = signal<Employee[]>([]);
 
   loadCompanies(): void {
     this.companyService.getCompanies().subscribe(data => {
       this.companies.set(data);
     });
+    this.employeeService.getEmployees().subscribe(employees => {
+      this.employees.set(employees);
+    })
   }
 
   ngOnInit(): void {
     this.loadCompanies();
+  }
+
+  getEmployeeNumber(companyId: string): number {
+    // THis code could be improve adding a method in spring boot for getting employees by companyId
+    let count = 0;
+    for (let employee of this.employees()) {
+      if (employee.companyId == companyId) count++;
+    }
+    return count;
   }
 
   // Dialogs
